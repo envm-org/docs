@@ -1,0 +1,1614 @@
+
+title: Initialize Go module and project structure
+desc: Create Go module (go mod init), define folder structure (cmd/, internal/, pkg/, api/, configs/, scripts/, docs/), and add .gitignore, .editorconfig, Makefile.
+label: setup, backend, priority-high
+---
+
+title: Set up Git repository with branch protection
+desc: Initialize git repo, create main/develop branches, configure branch protection rules, and add CODEOWNERS file.
+label: setup, infra, priority-high
+---
+
+title: Create README.md with project overview
+desc: Write initial README with project description, features, tech stack, getting started guide, and contribution guidelines placeholder.
+label: setup, documentation, priority-high
+---
+
+title: Set up development environment documentation
+desc: Document required tools (Go, Node.js, Docker, protoc), IDE setup recommendations, and local development instructions.
+label: setup, documentation, dx, priority-high
+---
+
+title: Configure Makefile with common commands
+desc: Add targets for build, test, lint, run, clean, proto-gen, docker-build, and help.
+label: setup, dx, priority-high
+---
+
+title: Set up Go linting and formatting (golangci-lint)
+desc: Configure golangci-lint with .golangci.yml, enable strict checks (errcheck, gosec, staticcheck), and add to Makefile.
+label: setup, backend, dx, priority-high
+---
+
+title: Configure pre-commit hooks
+desc: Set up pre-commit with hooks for linting, formatting, secret scanning, and commit message validation.
+label: setup, dx, security, priority-medium
+---
+
+title: Create CONTRIBUTING.md and CODE_OF_CONDUCT.md
+desc: Document contribution workflow, PR guidelines, coding standards, and community code of conduct.
+label: setup, documentation, priority-medium
+---
+
+title: Set up issue and PR templates for GitHub
+desc: Create .github/ISSUE_TEMPLATE/ and .github/PULL_REQUEST_TEMPLATE.md with structured formats.
+label: setup, infra, priority-medium
+---
+
+title: Create LICENSE file
+desc: Choose and add appropriate open-source license (MIT, Apache 2.0, etc.).
+label: setup, documentation, priority-high
+---
+
+title: Set up Go workspace with go.work (if multi-module)
+desc: Configure Go workspace for CLI, server, and shared packages if needed.
+label: setup, backend, priority-medium
+---
+
+title: Configure VS Code workspace settings
+desc: Add .vscode/settings.json with recommended extensions, formatting, and debug configurations.
+label: setup, dx, priority-low
+---
+
+title: Define .envm file format specification
+desc: Write formal specification document for .envm format including syntax, comments (#), groups ([group]), metadata (@meta), encrypted markers (ENC:), and variable interpolation (${VAR}).
+label: backend, documentation, priority-high
+---
+
+title: Create JSON schema for .envm validation
+desc: Define JSON schema for programmatic validation of .envm files, publish to schema store.
+label: backend, documentation, priority-high
+---
+
+title: Implement .envm lexer/tokenizer in Go
+desc: Build lexer to tokenize .envm files into tokens (comments, keys, values, groups, metadata, encrypted values).
+label: backend, priority-high
+---
+
+title: Implement .envm parser in Go
+desc: Build parser that converts tokens to AST/structured representation with error reporting and line numbers.
+label: backend, priority-high
+---
+
+title: Implement .envm validator
+desc: Validate parsed .envm against schema rules, required fields, type checking, and circular reference detection.
+label: backend, priority-high
+---
+
+title: Implement .envm writer/serializer
+desc: Convert internal representation back to .envm format with proper formatting and comments preservation.
+label: backend, priority-high
+---
+
+title: Add .envm file watcher for hot reload
+desc: Watch .envm files for changes and trigger reload/sync events.
+label: backend, dx, priority-medium
+---
+
+title: Write comprehensive parser unit tests
+desc: Test all edge cases: comments, escaping, multiline values, UTF-8, empty files, malformed input.
+label: backend, testing, priority-high
+---
+
+title: Create sample .envm files for testing
+desc: Build a collection of valid and invalid .envm files for testing and documentation.
+label: backend, testing, documentation, priority-medium
+---
+
+title: Set up Cobra CLI framework scaffold
+desc: Initialize Cobra with root command, version flag, help system, and command structure.
+label: cli, priority-high
+---
+
+title: Implement 'envm init' command
+desc: Initialize new .envm file in current directory with optional template selection and interactive prompts.
+label: cli, priority-high
+---
+
+title: Implement 'envm get <key>' command
+desc: Retrieve single or multiple environment variable values with optional format output (plain, json, export).
+label: cli, priority-high
+---
+
+title: Implement 'envm set <key>=<value>' command
+desc: Set environment variable with validation, optional encryption flag, and group assignment.
+label: cli, priority-high
+---
+
+title: Implement 'envm delete <key>' command
+desc: Delete environment variable with confirmation prompt and --force flag.
+label: cli, priority-high
+---
+
+title: Implement 'envm list' command
+desc: List all environment variables with filtering (--group, --search), formatting (table, json, dotenv), and pagination.
+label: cli, priority-high
+---
+
+title: Implement 'envm search <pattern>' command
+desc: Search variables by key/value pattern with regex support and highlighting.
+label: cli, priority-medium
+---
+
+title: Implement 'envm import' command
+desc: Import from dotenv, JSON, YAML files with conflict resolution (skip, overwrite, merge) options.
+label: cli, priority-high
+---
+
+title: Implement 'envm export' command
+desc: Export to dotenv, JSON, YAML, shell script formats with filtering options.
+label: cli, priority-high
+---
+
+title: Implement 'envm sync' command
+desc: Sync local .envm with remote server (push/pull/bidirectional) with conflict handling.
+label: cli, priority-high
+---
+
+title: Implement 'envm diff' command
+desc: Compare two .envm files or environments with colored diff output.
+label: cli, dx, priority-medium
+---
+
+title: Implement 'envm validate' command
+desc: Validate .envm file against schema with detailed error reporting.
+label: cli, priority-high
+---
+
+title: Implement 'envm encrypt <key>' command
+desc: Encrypt specific variable value in place with key management.
+label: cli, security, priority-high
+---
+
+title: Implement 'envm decrypt <key>' command
+desc: Decrypt specific variable for viewing (temporary, not persisted in plain).
+label: cli, security, priority-high
+---
+
+title: Implement 'envm run <command>' command
+desc: Execute command with .envm variables injected into environment (like dotenv-cli).
+label: cli, dx, priority-high
+---
+
+title: Implement 'envm history' command
+desc: Show version history of .envm changes with timestamps and authors.
+label: cli, operations, priority-medium
+---
+
+title: Implement 'envm rollback <version>' command
+desc: Rollback to specific version with confirmation and backup.
+label: cli, operations, priority-medium
+---
+
+title: Implement 'envm backup' command
+desc: Create encrypted backup of current .envm state to specified location.
+label: cli, operations, priority-medium
+---
+
+title: Implement 'envm restore' command
+desc: Restore .envm from backup file with validation.
+label: cli, operations, priority-medium
+---
+
+title: Implement 'envm config' command
+desc: Manage envm CLI configuration (set/get/list global and local settings).
+label: cli, priority-medium
+---
+
+title: Implement 'envm login/logout' commands
+desc: Authenticate with remote envm server for sync features.
+label: cli, security, priority-high
+---
+
+title: Implement 'envm whoami' command
+desc: Display current authenticated user and permissions.
+label: cli, priority-low
+---
+
+title: Implement 'envm group create/list/delete' commands
+desc: Manage variable groups from CLI.
+label: cli, priority-medium
+---
+
+title: Implement 'envm env create/switch/list' commands
+desc: Manage multiple environments (dev, staging, prod) from CLI.
+label: cli, priority-high
+---
+
+title: Add shell completion scripts (bash/zsh/fish/powershell)
+desc: Generate and document installation for shell autocompletion via Cobra.
+label: cli, dx, priority-medium
+---
+
+title: Add interactive mode for CLI commands
+desc: Use survey/promptui for interactive prompts when flags are missing.
+label: cli, dx, priority-medium
+---
+
+title: Implement 'envm doctor' command
+desc: Diagnose common issues (permissions, connectivity, config validity) and suggest fixes.
+label: cli, dx, priority-low
+---
+
+title: Implement 'envm version' command with update check
+desc: Show version info and check for available updates.
+label: cli, priority-low
+---
+
+title: Add verbose and quiet mode flags globally
+desc: Implement -v/--verbose and -q/--quiet flags for all commands.
+label: cli, dx, priority-medium
+---
+
+title: Add JSON output format for all commands
+desc: Support --output=json flag for machine-readable output.
+label: cli, dx, priority-medium
+---
+
+title: Write CLI unit and integration tests
+desc: Test all commands with various inputs, flags, and error conditions.
+label: cli, testing, priority-high
+---
+
+title: Set up Viper for configuration management
+desc: Initialize Viper with config file support (.envm.config.yaml), environment variables (ENVM_*), and CLI flags precedence.
+label: cli, backend, priority-high
+---
+
+title: Define configuration schema and defaults
+desc: Document all config options (server URL, default encryption, log level, etc.) with sensible defaults.
+label: backend, documentation, priority-high
+---
+
+title: Implement config file auto-discovery
+desc: Search for config in current dir, home dir (~/.envm/), and system locations with merge behavior.
+label: backend, priority-medium
+---
+
+title: Add config validation on startup
+desc: Validate configuration values and report errors with helpful messages.
+label: backend, priority-medium
+---
+
+title: Support per-project configuration
+desc: Allow .envm.config.yaml in project root to override global settings.
+label: backend, dx, priority-medium
+---
+
+title: Set up SQLite with golang-migrate
+desc: Initialize SQLite database, configure connection pooling, and set up migration framework.
+label: backend, database, priority-high
+---
+
+title: Create initial database schema migrations
+desc: Design and implement migrations for: variables, groups, versions, audit_logs, users, permissions tables.
+label: backend, database, priority-high
+---
+
+title: Implement repository pattern for data access
+desc: Create repository interfaces and SQLite implementations for all entities.
+label: backend, database, priority-high
+---
+
+title: Implement variable CRUD operations
+desc: Create, read, update, delete operations for environment variables with transaction support.
+label: backend, database, priority-high
+---
+
+title: Implement group/category management
+desc: CRUD for variable groups with hierarchical support.
+label: backend, database, priority-medium
+---
+
+title: Implement version tracking storage
+desc: Store version history with diffs, timestamps, and author information.
+label: backend, database, priority-high
+---
+
+title: Implement audit log storage
+desc: Persist all operations with who, what, when, where (IP), and result.
+label: backend, database, security, priority-high
+---
+
+title: Implement user and permissions storage
+desc: Store users, roles, and permission mappings.
+label: backend, database, security, priority-high
+---
+
+title: Add database connection health checks
+desc: Implement health check endpoint and CLI command for database connectivity.
+label: backend, database, priority-medium
+---
+
+title: Implement database connection retry logic
+desc: Add exponential backoff retry for database connections.
+label: backend, database, priority-medium
+---
+
+title: Write database integration tests
+desc: Test all repository operations with test fixtures and cleanup.
+label: backend, database, testing, priority-high
+---
+
+title: Add database backup/restore utilities
+desc: Implement SQLite backup to file and restore from backup.
+label: backend, database, operations, priority-medium
+---
+
+title: Implement database seeding for development
+desc: Create seed data scripts for local development and testing.
+label: backend, database, dx, priority-low
+---
+
+title: Implement AES-256-GCM encryption module
+desc: Create encryption/decryption utilities with authenticated encryption.
+label: backend, security, priority-high
+---
+
+title: Implement secure key derivation (Argon2/scrypt)
+desc: Derive encryption keys from passwords using modern KDF.
+label: backend, security, priority-high
+---
+
+title: Implement master key management
+desc: Handle master key storage, rotation, and secure memory handling.
+label: backend, security, priority-high
+---
+
+title: Implement encrypted value storage format
+desc: Define format for storing encrypted values (ENC:base64:iv:ciphertext:tag).
+label: backend, security, priority-high
+---
+
+title: Implement RBAC roles and permissions model
+desc: Define reader/editor/admin roles with granular permissions per group/variable.
+label: backend, security, priority-high
+---
+
+title: Implement permission checking middleware
+desc: Enforce permissions on all API endpoints and CLI operations.
+label: backend, security, priority-high
+---
+
+title: Implement JWT authentication
+desc: Generate and validate JWT tokens with refresh token support.
+label: backend, security, priority-high
+---
+
+title: Implement API key authentication
+desc: Support API keys for CI/CD and programmatic access.
+label: backend, security, priority-high
+---
+
+title: Implement API key management (create/revoke/list)
+desc: Allow users to manage their API keys via CLI and GUI.
+label: backend, security, priority-medium
+---
+
+title: Add rate limiting middleware
+desc: Implement rate limiting per user/IP using Redis with configurable limits.
+label: backend, security, priority-medium
+---
+
+title: Implement secret scanning utility
+desc: Scan for common secret patterns (AWS keys, tokens, passwords) in values.
+label: backend, security, priority-medium
+---
+
+title: Add TLS configuration for all connections
+desc: Configure TLS 1.3 with secure cipher suites for HTTP and gRPC.
+label: backend, security, infra, priority-high
+---
+
+title: Implement mTLS for service-to-service communication
+desc: Add mutual TLS support for gRPC sync operations.
+label: backend, security, priority-medium
+---
+
+title: Implement password hashing for user accounts
+desc: Use bcrypt/argon2 for storing user passwords securely.
+label: backend, security, priority-high
+---
+
+title: Add brute force protection for login
+desc: Implement account lockout after failed login attempts.
+label: backend, security, priority-medium
+---
+
+title: Implement secure session management
+desc: Handle session creation, validation, and expiration securely.
+label: backend, security, priority-high
+---
+
+title: Add CORS configuration
+desc: Configure CORS with proper origin restrictions for web GUI.
+label: backend, security, priority-high
+---
+
+title: Implement CSRF protection
+desc: Add CSRF tokens for state-changing operations in web GUI.
+label: backend, security, priority-medium
+---
+
+title: Write security-focused unit tests
+desc: Test encryption, authentication, authorization, and edge cases.
+label: backend, security, testing, priority-high
+---
+
+title: Conduct security review and threat modeling
+desc: Document threat model, review code for vulnerabilities, and address findings.
+label: security, documentation, priority-high
+---
+
+title: Define Protocol Buffer schemas
+desc: Create .proto files for all services: Variables, Groups, Sync, Auth, Audit.
+label: backend, grpc, priority-high
+---
+
+title: Set up protoc code generation pipeline
+desc: Configure buf or protoc with Go plugins, add to Makefile.
+label: backend, grpc, priority-high
+---
+
+title: Implement Variables gRPC service
+desc: Implement CRUD operations for variables via gRPC.
+label: backend, grpc, priority-high
+---
+
+title: Implement Groups gRPC service
+desc: Implement group management via gRPC.
+label: backend, grpc, priority-medium
+---
+
+title: Implement Environments gRPC service
+desc: Implement environment management (dev/staging/prod) via gRPC.
+label: backend, grpc, priority-high
+---
+
+title: Implement Sync gRPC service with streaming
+desc: Implement bidirectional sync with conflict resolution via gRPC streams.
+label: backend, grpc, priority-high
+---
+
+title: Implement Auth gRPC service
+desc: Login, logout, token refresh, and user info via gRPC.
+label: backend, grpc, security, priority-high
+---
+
+title: Implement User management gRPC service
+desc: User CRUD operations for admin users.
+label: backend, grpc, security, priority-medium
+---
+
+title: Implement Audit gRPC service
+desc: Query audit logs with filtering and pagination.
+label: backend, grpc, priority-medium
+---
+
+title: Add gRPC interceptors for auth and logging
+desc: Implement unary and stream interceptors for authentication, logging, and metrics.
+label: backend, grpc, priority-high
+---
+
+title: Add gRPC error handling with proper codes
+desc: Map internal errors to appropriate gRPC status codes with details.
+label: backend, grpc, priority-high
+---
+
+title: Add gRPC health check service
+desc: Implement standard gRPC health checking protocol.
+label: backend, grpc, priority-medium
+---
+
+title: Add gRPC reflection for debugging
+desc: Enable gRPC reflection service for debugging with grpcurl.
+label: backend, grpc, dx, priority-low
+---
+
+title: Write gRPC service integration tests
+desc: Test all services with mock clients and various scenarios.
+label: backend, grpc, testing, priority-high
+---
+
+title: Set up Chi router with middleware stack
+desc: Configure Chi with logging, recovery, CORS, compression, and request ID middleware.
+label: backend, rest, priority-high
+---
+
+title: Set up grpc-gateway for REST proxy
+desc: Generate REST handlers from proto definitions with custom mappings.
+label: backend, rest, grpc, priority-high
+---
+
+title: Implement REST authentication middleware
+desc: JWT and API key validation middleware for Chi.
+label: backend, rest, security, priority-high
+---
+
+title: Add OpenAPI/Swagger documentation generation
+desc: Generate OpenAPI spec from proto/annotations, serve Swagger UI.
+label: backend, rest, documentation, priority-medium
+---
+
+title: Implement REST error handling and response format
+desc: Standardize error responses with codes, messages, and details.
+label: backend, rest, priority-high
+---
+
+title: Add request validation middleware
+desc: Validate request bodies and query parameters with detailed errors.
+label: backend, rest, priority-medium
+---
+
+title: Implement pagination for list endpoints
+desc: Add cursor-based or offset pagination for all list operations.
+label: backend, rest, priority-medium
+---
+
+title: Add request/response logging middleware
+desc: Log requests with sanitized bodies (no secrets) for debugging.
+label: backend, rest, priority-medium
+---
+
+title: Write REST API integration tests
+desc: Test all endpoints with various authentication states and inputs.
+label: backend, rest, testing, priority-high
+---
+
+title: Set up Redis client with connection pooling
+desc: Configure go-redis with connection pool, timeouts, and retry logic.
+label: backend, database, priority-high
+---
+
+title: Implement caching layer for variable reads
+desc: Cache frequently accessed variables with TTL and invalidation.
+label: backend, performance, priority-medium
+---
+
+title: Implement cache invalidation on updates
+desc: Invalidate cache entries when variables are modified.
+label: backend, performance, priority-medium
+---
+
+title: Implement rate limiting with Redis
+desc: Sliding window rate limiting per user/IP stored in Redis.
+label: backend, security, priority-medium
+---
+
+title: Implement distributed locking for sync operations
+desc: Use Redis locks to prevent concurrent sync conflicts.
+label: backend, operations, priority-medium
+---
+
+title: Set up NATS client and connection management
+desc: Configure NATS client with reconnection and error handling.
+label: backend, events, priority-high
+---
+
+title: Define event schemas and topics
+desc: Document event types (variable.created, variable.updated, sync.completed, etc.) and payload schemas.
+label: backend, events, documentation, priority-high
+---
+
+title: Implement event publishing for all operations
+desc: Publish events on variable/group changes, sync events, and auth events.
+label: backend, events, priority-high
+---
+
+title: Implement event consumers for internal processing
+desc: Consume events for audit logging, cache invalidation, etc.
+label: backend, events, priority-medium
+---
+
+title: Implement webhook delivery via NATS consumers
+desc: Process outbound webhooks with retry logic and delivery tracking.
+label: backend, events, priority-medium
+---
+
+title: Add dead letter queue for failed events
+desc: Handle failed event processing with DLQ and alerting.
+label: backend, events, priority-low
+---
+
+title: Write Redis and NATS integration tests
+desc: Test caching, rate limiting, and event publishing.
+label: backend, testing, priority-high
+---
+
+title: Implement variable interpolation engine
+desc: Parse and resolve ${VAR} references with cycle detection and max depth.
+label: backend, priority-high
+---
+
+title: Implement nested/recursive interpolation
+desc: Support ${${DYNAMIC_KEY}} and ${VAR:-default} patterns.
+label: backend, priority-medium
+---
+
+title: Implement default value syntax
+desc: Support ${VAR:-default_value} for fallback values.
+label: backend, priority-medium
+---
+
+title: Implement environment inheritance system
+desc: Define parent-child relationships (dev inherits from base, staging inherits from dev).
+label: backend, priority-high
+---
+
+title: Implement variable override resolution
+desc: Resolve final values through inheritance chain with precedence rules.
+label: backend, priority-high
+---
+
+title: Add circular dependency detection
+desc: Detect and report circular references in interpolation and inheritance.
+label: backend, priority-high
+---
+
+title: Implement conditional variables
+desc: Support platform-specific (OS, arch) and user-specific variable values.
+label: backend, priority-medium
+---
+
+title: Add required variable validation
+desc: Validate that all required variables are set before use.
+label: backend, priority-medium
+---
+
+title: Implement variable type validation
+desc: Support type hints (string, number, boolean, url, email) with validation.
+label: backend, priority-medium
+---
+
+title: Write interpolation and inheritance tests
+desc: Test complex scenarios, edge cases, and error conditions.
+label: backend, testing, priority-high
+---
+
+title: Set up TypeScript NPM package structure
+desc: Initialize package with TypeScript, ESLint, Prettier, and build configuration.
+label: npm, priority-high
+---
+
+title: Implement Go binary download on postinstall
+desc: Download platform-specific binary from releases during npm install.
+label: npm, priority-high
+---
+
+title: Implement binary caching for faster installs
+desc: Cache downloaded binary to avoid re-downloading on reinstall.
+label: npm, dx, priority-medium
+---
+
+title: Implement TypeScript wrapper API
+desc: Create typed functions that spawn Go CLI and parse output.
+label: npm, priority-high
+---
+
+title: Add programmatic API for Node.js usage
+desc: Export functions: get(), set(), list(), sync(), etc. for use in code.
+label: npm, priority-high
+---
+
+title: Implement dotenv compatibility mode
+desc: Provide drop-in replacement API compatible with dotenv package.
+label: npm, dx, priority-medium
+---
+
+title: Implement config() function for auto-loading
+desc: Load .envm into process.env on import (like dotenv).
+label: npm, dx, priority-high
+---
+
+title: Add TypeScript type definitions
+desc: Export comprehensive types for all API responses and options.
+label: npm, dx, priority-high
+---
+
+title: Implement error handling with typed errors
+desc: Create custom error classes for different failure modes.
+label: npm, priority-medium
+---
+
+title: Add async/await support for all operations
+desc: Ensure all API functions return promises.
+label: npm, priority-high
+---
+
+title: Write NPM package documentation
+desc: Document installation, API reference, and usage examples.
+label: npm, documentation, priority-high
+---
+
+title: Write NPM package tests
+desc: Test API wrapper, binary spawning, and error handling.
+label: npm, testing, priority-high
+---
+
+title: Set up NPM publish workflow
+desc: Configure GitHub Actions to publish to npm on release.
+label: npm, ci-cd, priority-high
+---
+
+title: Add ESM and CommonJS build outputs
+desc: Support both module systems for broad compatibility.
+label: npm, priority-medium
+---
+
+title: Set up React/Vite frontend project
+desc: Initialize Vite with React, TypeScript, TailwindCSS, and routing.
+label: frontend, gui, priority-high
+---
+
+title: Set up frontend folder structure
+desc: Organize components, hooks, pages, services, and utilities.
+label: frontend, gui, priority-high
+---
+
+title: Design and implement UI component library
+desc: Create reusable components: buttons, inputs, tables, modals, toasts.
+label: frontend, gui, design, priority-high
+---
+
+title: Implement API client with fetch/axios
+desc: Create typed API client for REST endpoints with error handling.
+label: frontend, gui, priority-high
+---
+
+title: Implement authentication UI (login/register/logout)
+desc: Build auth pages with form validation and error handling.
+label: frontend, gui, security, priority-high
+---
+
+title: Implement auth state management
+desc: Handle auth tokens, refresh, and logout across the app.
+label: frontend, gui, security, priority-high
+---
+
+title: Implement protected routes
+desc: Redirect unauthenticated users to login.
+label: frontend, gui, security, priority-high
+---
+
+title: Implement dashboard/overview page
+desc: Show environment summary, recent changes, and quick actions.
+label: frontend, gui, priority-high
+---
+
+title: Implement variables list view
+desc: Paginated, sortable, filterable table of all variables with bulk actions.
+label: frontend, gui, priority-high
+---
+
+title: Implement variable detail/edit view
+desc: View and edit single variable with history and metadata.
+label: frontend, gui, priority-high
+---
+
+title: Implement variable create modal/page
+desc: Form to add new variables with validation.
+label: frontend, gui, priority-high
+---
+
+title: Implement groups management UI
+desc: Create, edit, delete groups with drag-and-drop organization.
+label: frontend, gui, priority-medium
+---
+
+title: Implement environment selector/switcher
+desc: Switch between dev/staging/production environments.
+label: frontend, gui, priority-high
+---
+
+title: Implement environment management page
+desc: Create, edit, delete, and configure environments.
+label: frontend, gui, priority-medium
+---
+
+title: Implement diff/compare view
+desc: Side-by-side comparison of environments with highlighting.
+label: frontend, gui, priority-medium
+---
+
+title: Implement audit log viewer
+desc: Searchable, filterable audit log with details panel.
+label: frontend, gui, priority-medium
+---
+
+title: Implement user/team management UI
+desc: Manage users, roles, and permissions (admin only).
+label: frontend, gui, security, priority-medium
+---
+
+title: Implement settings page
+desc: User preferences, API keys, notifications settings.
+label: frontend, gui, priority-medium
+---
+
+title: Implement import/export wizard
+desc: Guided flow for importing and exporting variables.
+label: frontend, gui, dx, priority-medium
+---
+
+title: Implement search functionality
+desc: Global search across variables and groups.
+label: frontend, gui, priority-medium
+---
+
+title: Add keyboard shortcuts
+desc: Implement common shortcuts (save, search, navigate).
+label: frontend, gui, dx, priority-low
+---
+
+title: Add dark mode support
+desc: Implement theme toggle with system preference detection.
+label: frontend, gui, design, priority-low
+---
+
+title: Implement real-time updates via WebSocket
+desc: Live updates when variables change from CLI or other sessions.
+label: frontend, gui, priority-medium
+---
+
+title: Add responsive design for mobile
+desc: Ensure usability on tablet and mobile devices.
+label: frontend, gui, design, priority-medium
+---
+
+title: Implement loading states and skeletons
+desc: Add loading indicators and skeleton screens for async operations.
+label: frontend, gui, dx, priority-medium
+---
+
+title: Implement error boundaries and error pages
+desc: Handle React errors gracefully with recovery options.
+label: frontend, gui, priority-medium
+---
+
+title: Add toast notifications for actions
+desc: Show success/error notifications for user actions.
+label: frontend, gui, dx, priority-medium
+---
+
+title: Implement confirmation dialogs
+desc: Confirm destructive actions (delete, overwrite).
+label: frontend, gui, priority-medium
+---
+
+title: Write frontend unit tests
+desc: Test components, hooks, and utilities with Vitest.
+label: frontend, gui, testing, priority-high
+---
+
+title: Write frontend E2E tests
+desc: Test critical flows with Playwright/Cypress.
+label: frontend, gui, testing, priority-high
+---
+
+title: Set up VSCode extension project
+desc: Initialize extension with TypeScript, webpack, and extension manifest.
+label: ide, priority-high
+---
+
+title: Create .envm syntax highlighting grammar
+desc: Define TextMate grammar for .envm files with proper tokenization.
+label: ide, priority-high
+---
+
+title: Design and add custom .envm file icon
+desc: Create icon assets (SVG, PNG) and register in extension.
+label: ide, design, priority-high
+---
+
+title: Implement hover providers for variables
+desc: Show variable value and metadata on hover.
+label: ide, dx, priority-medium
+---
+
+title: Implement autocomplete for variable references
+desc: Suggest existing variables when typing ${...}.
+label: ide, dx, priority-medium
+---
+
+title: Implement go-to-definition for variable references
+desc: Jump to variable definition from ${VAR} references.
+label: ide, dx, priority-medium
+---
+
+title: Implement find all references
+desc: Find all usages of a variable in the file.
+label: ide, dx, priority-low
+---
+
+title: Implement validation diagnostics
+desc: Show inline errors and warnings for .envm files.
+label: ide, dx, priority-medium
+---
+
+title: Add commands palette integration
+desc: Add commands for common operations (sync, validate, encrypt).
+label: ide, priority-medium
+---
+
+title: Implement sidebar panel for variable explorer
+desc: Tree view of variables and groups in sidebar.
+label: ide, dx, priority-low
+---
+
+title: Add snippet support for common patterns
+desc: Provide snippets for groups, metadata, and common variables.
+label: ide, dx, priority-low
+---
+
+title: Implement code lens for variable info
+desc: Show inline variable value/metadata above definitions.
+label: ide, dx, priority-low
+---
+
+title: Add settings for extension configuration
+desc: Allow users to configure extension behavior.
+label: ide, priority-medium
+---
+
+title: Implement status bar integration
+desc: Show current environment and sync status in status bar.
+label: ide, dx, priority-low
+---
+
+title: Write extension tests
+desc: Test syntax highlighting, commands, and providers.
+label: ide, testing, priority-high
+---
+
+title: Write extension documentation
+desc: Document features, installation, and configuration.
+label: ide, documentation, priority-medium
+---
+
+title: Publish extension to VS Code Marketplace
+desc: Configure publishing, create marketplace listing, and publish.
+label: ide, ci-cd, priority-high
+---
+
+title: Create Dockerfile for CLI binary
+desc: Multi-stage build for minimal CLI container image.
+label: infra, priority-high
+---
+
+title: Create Dockerfile for API server
+desc: Multi-stage build with proper user, health check, and signal handling.
+label: infra, priority-high
+---
+
+title: Create Dockerfile for web GUI
+desc: Build React app and serve with nginx/caddy.
+label: infra, frontend, priority-high
+---
+
+title: Create docker-compose.yml for local development
+desc: Compose all services (API, GUI, Redis, NATS, SQLite) for local dev.
+label: infra, dx, priority-high
+---
+
+title: Create docker-compose.prod.yml for production
+desc: Production-ready compose with PostgreSQL, proper networking, and secrets.
+label: infra, priority-medium
+---
+
+title: Add Docker health checks for all services
+desc: Configure health checks with proper intervals and thresholds.
+label: infra, priority-medium
+---
+
+title: Optimize Docker images for size
+desc: Use distroless/alpine, remove unnecessary files, multi-stage builds.
+label: infra, performance, priority-medium
+---
+
+title: Configure Docker networking
+desc: Set up proper network isolation and service discovery.
+label: infra, priority-medium
+---
+
+title: Add Docker volume configuration
+desc: Configure volumes for persistent data (database, backups).
+label: infra, priority-medium
+---
+
+title: Create .dockerignore files
+desc: Exclude unnecessary files from build context.
+label: infra, priority-low
+---
+
+title: Document Docker deployment guide
+desc: Write guide for deploying with Docker/Compose.
+label: infra, documentation, priority-high
+---
+
+title: Add Docker secrets support
+desc: Configure secrets management for sensitive environment variables.
+label: infra, security, priority-medium
+---
+
+title: Set up GitHub Actions workflow structure
+desc: Create .github/workflows/ with reusable workflows and proper organization.
+label: ci-cd, priority-high
+---
+
+title: Implement CI workflow for PRs
+desc: Run lint, test, build on every PR with status checks.
+label: ci-cd, priority-high
+---
+
+title: Implement Go build and test workflow
+desc: Matrix build for multiple Go versions, run tests with coverage.
+label: ci-cd, backend, priority-high
+---
+
+title: Implement frontend build and test workflow
+desc: Build React app, run unit and E2E tests.
+label: ci-cd, frontend, priority-high
+---
+
+title: Implement multi-arch binary release workflow
+desc: Build binaries for linux/darwin/windows on amd64/arm64, create GitHub release.
+label: ci-cd, priority-high
+---
+
+title: Implement Docker image build and push workflow
+desc: Build and push images to Docker Hub/GHCR on release.
+label: ci-cd, infra, priority-high
+---
+
+title: Implement NPM package publish workflow
+desc: Publish to npm registry on release with version from tag.
+label: ci-cd, npm, priority-high
+---
+
+title: Implement VSCode extension publish workflow
+desc: Publish to VS Code Marketplace on release.
+label: ci-cd, ide, priority-high
+---
+
+title: Set up code coverage reporting
+desc: Upload coverage to Codecov/Coveralls, add badges to README.
+label: ci-cd, testing, priority-medium
+---
+
+title: Set up dependency security scanning
+desc: Configure Dependabot and/or Snyk for vulnerability scanning.
+label: ci-cd, security, priority-high
+---
+
+title: Implement semantic versioning automation
+desc: Use semantic-release or similar for automated versioning.
+label: ci-cd, priority-medium
+---
+
+title: Set up staging environment deployment
+desc: Auto-deploy to staging on merge to develop branch.
+label: ci-cd, infra, priority-medium
+---
+
+title: Set up production deployment workflow
+desc: Manual approval deployment to production on release.
+label: ci-cd, infra, priority-high
+---
+
+title: Add workflow for documentation deployment
+desc: Auto-deploy docs to GitHub Pages on merge.
+label: ci-cd, documentation, priority-medium
+---
+
+title: Implement changelog generation
+desc: Auto-generate changelog from commit messages.
+label: ci-cd, documentation, priority-medium
+---
+
+title: Set up branch protection rules
+desc: Require PR reviews, status checks, and signed commits.
+label: ci-cd, security, priority-high
+---
+
+title: Add caching to CI workflows
+desc: Cache dependencies, build artifacts for faster CI.
+label: ci-cd, performance, priority-medium
+---
+
+title: Define testing strategy and coverage goals
+desc: Document unit/integration/E2E test requirements, coverage targets (80%+).
+label: testing, documentation, priority-high
+---
+
+title: Set up Go test framework with testify
+desc: Configure testify for assertions, mocks, and test suites.
+label: backend, testing, priority-high
+---
+
+title: Set up mock generation for interfaces
+desc: Configure mockgen or similar for generating test mocks.
+label: backend, testing, priority-medium
+---
+
+title: Create test fixtures and factories
+desc: Build reusable test data generators and fixtures.
+label: backend, testing, priority-high
+---
+
+title: Implement unit tests for core packages
+desc: Test parser, encryption, interpolation, and business logic.
+label: backend, testing, priority-high
+---
+
+title: Implement integration tests for repositories
+desc: Test database operations with test database.
+label: backend, testing, priority-high
+---
+
+title: Implement API integration tests
+desc: Test REST and gRPC endpoints with test server.
+label: backend, testing, priority-high
+---
+
+title: Implement CLI integration tests
+desc: Test CLI commands with subprocess execution.
+label: cli, testing, priority-high
+---
+
+title: Set up frontend testing with Vitest
+desc: Configure Vitest for React component and hook testing.
+label: frontend, testing, priority-high
+---
+
+title: Implement frontend unit tests
+desc: Test components, hooks, and utilities.
+label: frontend, testing, priority-high
+---
+
+title: Set up E2E testing with Playwright
+desc: Configure Playwright for browser automation testing.
+label: frontend, testing, priority-high
+---
+
+title: Implement E2E tests for critical flows
+desc: Test login, variable management, sync, and export flows.
+label: frontend, testing, priority-high
+---
+
+title: Implement load/performance testing
+desc: Use k6 or similar to test API under load.
+label: testing, performance, priority-medium
+---
+
+title: Set up test environment with Docker Compose
+desc: Spin up isolated test environment for integration tests.
+label: testing, infra, priority-high
+---
+
+title: Implement contract testing for APIs
+desc: Ensure API compatibility with consumer contracts.
+label: testing, backend, priority-low
+---
+
+title: Add test data cleanup scripts
+desc: Clean up test data after test runs.
+label: testing, priority-medium
+---
+
+title: Set up documentation site (Docusaurus/VitePress)
+desc: Initialize docs site with proper structure and theming.
+label: documentation, priority-high
+---
+
+title: Write getting started guide
+desc: Step-by-step guide for installation and first use.
+label: documentation, priority-high
+---
+
+title: Write CLI command reference
+desc: Document all commands with examples and options.
+label: documentation, cli, priority-high
+---
+
+title: Write .envm file format specification
+desc: Comprehensive format documentation with examples.
+label: documentation, priority-high
+---
+
+title: Write API reference documentation
+desc: Document REST and gRPC APIs with examples.
+label: documentation, backend, priority-high
+---
+
+title: Write NPM package documentation
+desc: API reference and usage examples for Node.js.
+label: documentation, npm, priority-high
+---
+
+title: Write security best practices guide
+desc: Document encryption, key management, and security recommendations.
+label: documentation, security, priority-high
+---
+
+title: Write deployment guide
+desc: Document Docker, Kubernetes, and cloud deployment options.
+label: documentation, infra, priority-high
+---
+
+title: Write migration guides from other tools
+desc: Guides for migrating from dotenv, dotenv-vault, Doppler.
+label: documentation, priority-medium
+---
+
+title: Write integration guides
+desc: Document integration with CI/CD platforms, frameworks.
+label: documentation, priority-medium
+---
+
+title: Create video tutorials
+desc: Record getting started, features overview, and advanced usage videos.
+label: documentation, priority-low
+---
+
+title: Write troubleshooting guide
+desc: Document common issues and solutions.
+label: documentation, priority-medium
+---
+
+title: Write FAQ page
+desc: Answer frequently asked questions.
+label: documentation, priority-medium
+---
+
+title: Create architecture documentation
+desc: Document system architecture, data flow, and design decisions.
+label: documentation, priority-medium
+---
+
+title: Set up docs deployment workflow
+desc: Auto-deploy docs to GitHub Pages/Vercel on merge.
+label: documentation, ci-cd, priority-medium
+---
+
+title: Add search to documentation site
+desc: Implement search functionality (Algolia/local).
+label: documentation, priority-medium
+---
+
+title: Create API changelog
+desc: Document API changes and deprecations.
+label: documentation, priority-medium
+---
+
+title: Implement structured logging with zap/zerolog
+desc: Configure structured logging with levels, correlation IDs, and proper formatting.
+label: backend, observability, priority-high
+---
+
+title: Add log level configuration
+desc: Allow runtime log level changes via config.
+label: backend, observability, priority-medium
+---
+
+title: Add Prometheus metrics endpoint
+desc: Expose /metrics endpoint with standard Go and custom metrics.
+label: backend, observability, priority-medium
+---
+
+title: Define custom application metrics
+desc: Track: requests, latency, sync operations, cache hits, errors.
+label: backend, observability, priority-medium
+---
+
+title: Implement OpenTelemetry tracing
+desc: Add distributed tracing with span context propagation.
+label: backend, observability, priority-medium
+---
+
+title: Add trace context propagation to gRPC
+desc: Propagate trace context across gRPC calls.
+label: backend, observability, priority-medium
+---
+
+title: Create Grafana dashboards
+desc: Build dashboards for application health, performance, and usage.
+label: infra, observability, priority-low
+---
+
+title: Set up alerting rules
+desc: Define alerts for error rates, latency, and availability.
+label: infra, observability, priority-low
+---
+
+title: Implement health check endpoints
+desc: Add /health and /ready endpoints for orchestrators.
+label: backend, observability, priority-high
+---
+
+title: Add request ID middleware
+desc: Generate and propagate request IDs for tracking.
+label: backend, observability, priority-medium
+---
+
+title: Design envm logo
+desc: Create primary logo in various formats (SVG, PNG, ICO).
+label: design, priority-high
+---
+
+title: Design .envm file icon
+desc: Create distinctive file icon for all platforms.
+label: design, priority-high
+---
+
+title: Create brand guidelines document
+desc: Document colors, typography, logo usage, and visual identity.
+label: design, documentation, priority-medium
+---
+
+title: Design CLI output styling
+desc: Define color scheme and formatting for CLI output.
+label: design, cli, priority-medium
+---
+
+title: Create social media assets
+desc: Design Twitter/LinkedIn banners, profile images, and announcement graphics.
+label: design, priority-low
+---
+
+title: Design favicon and app icons
+desc: Create web app icons in various sizes.
+label: design, frontend, priority-medium
+---
+
+title: Register file association with Windows
+desc: Create installer that registers .envm file association.
+label: design, infra, priority-medium
+---
+
+title: Register file association with macOS
+desc: Create DMG/pkg installer with file association.
+label: design, infra, priority-medium
+---
+
+title: Register file association with Linux
+desc: Create .desktop file and mime type registration.
+label: design, infra, priority-medium
+---
+
+title: Create README badges
+desc: Add badges for build status, coverage, npm, etc.
+label: design, documentation, priority-low
+---
+
+title: Conduct internal alpha testing
+desc: Test all features internally, document bugs and improvements.
+label: testing, priority-high
+---
+
+title: Set up beta testing program
+desc: Invite external testers, collect feedback, and iterate.
+label: testing, priority-medium
+---
+
+title: Fix all critical and high priority bugs
+desc: Address all bugs found during alpha/beta testing.
+label: testing, priority-high
+---
+
+title: Performance optimization pass
+desc: Profile and optimize slow operations.
+label: performance, priority-medium
+---
+
+title: Prepare launch announcement content
+desc: Write blog post, social media content, and Product Hunt listing.
+label: documentation, priority-medium
+---
+
+title: Set up community channels
+desc: Create Discord/Slack community, GitHub Discussions.
+label: infra, priority-medium
+---
+
+title: Create demo project and examples
+desc: Build example projects showing envm integration.
+label: documentation, dx, priority-medium
+---
+
+title: Create comparison page with competitors
+desc: Document differences from dotenv-vault, Doppler, etc.
+label: documentation, priority-medium
+---
+
+title: Set up analytics and feedback collection
+desc: Implement anonymous usage analytics and feedback mechanisms.
+label: infra, observability, priority-low
+---
+
+title: Final security audit
+desc: Conduct thorough security review before public launch.
+label: security, priority-high
+---
+
+title: Legal review (Terms of Service, Privacy Policy)
+desc: Prepare legal documents for hosted service (if applicable).
+label: documentation, priority-medium
+---
+
+title: Create changelog and release notes
+desc: Document all features for v1.0.0 release.
+label: documentation, priority-high
+---
+
+title: Update README with final content
+desc: Polish README with accurate installation, usage, and links.
+label: documentation, priority-high
+---
+
+title: Verify all links and documentation
+desc: Test all links, code examples, and documentation accuracy.
+label: documentation, testing, priority-high
+---
+
+title: Tag and release v1.0.0
+desc: Create GitHub release, publish all packages, announce launch.
+label: ci-cd, priority-high
+---
+
+title: Submit to package managers
+desc: Submit to Homebrew, Scoop, AUR, etc.
+label: infra, priority-medium
+---
+
+title: [Post-MVP] Implement PostgreSQL support
+desc: Add PostgreSQL as alternative to SQLite for production deployments.
+label: backend, database, post-mvp
+---
+
+title: [Post-MVP] Implement HashiCorp Vault integration
+desc: Sync secrets with HashiCorp Vault.
+label: backend, security, post-mvp
+---
+
+title: [Post-MVP] Implement AWS Secrets Manager integration
+desc: Sync secrets with AWS Secrets Manager.
+label: backend, security, post-mvp
+---
+
+title: [Post-MVP] Implement Azure Key Vault integration
+desc: Sync secrets with Azure Key Vault.
+label: backend, security, post-mvp
+---
+
+title: [Post-MVP] Implement GCP Secret Manager integration
+desc: Sync secrets with Google Cloud Secret Manager.
+label: backend, security, post-mvp
+---
+
+title: [Post-MVP] Build Kubernetes operator
+desc: Create K8s operator for native secrets management.
+label: infra, post-mvp
+---
+
+title: [Post-MVP] Add RabbitMQ support
+desc: Alternative to NATS for enterprise environments.
+label: backend, events, post-mvp
+---
+
+title: [Post-MVP] Build desktop app with Wails
+desc: Native desktop application for Windows, macOS, Linux.
+label: frontend, post-mvp
+---
+
+title: [Post-MVP] Implement 1Password integration
+desc: Sync with 1Password vaults.
+label: backend, security, post-mvp
+---
+
+title: [Post-MVP] Implement Bitwarden integration
+desc: Sync with Bitwarden vaults.
+label: backend, security, post-mvp
+---
+
+title: [Post-MVP] Implement Terraform provider
+desc: Manage envm resources via Terraform.
+label: infra, post-mvp
+---
+
+title: [Post-MVP] Implement Pulumi provider
+desc: Manage envm resources via Pulumi.
+label: infra, post-mvp
+---
+
+title: [Post-MVP] Add GraphQL API
+desc: Implement GraphQL endpoint alongside REST/gRPC.
+label: backend, post-mvp
+---
+
+title: [Post-MVP] Build IntelliJ plugin
+desc: IDE support for JetBrains IDEs.
+label: ide, post-mvp
+---
+
+title: [Post-MVP] Build Neovim plugin
+desc: IDE support for Neovim.
+label: ide, post-mvp
+---
+
+title: [Post-MVP] Implement MFA for sensitive operations
+desc: Require MFA for production env changes.
+label: security, post-mvp
+---
+
+title: [Post-MVP] Add compliance reports (SOC2, GDPR)
+desc: Generate compliance-ready audit reports.
+label: security, post-mvp
+---
+
+title: [Post-MVP] Implement change request workflows
+desc: Approval workflows for production changes.
+label: backend, operations, post-mvp
+---
+
+title: [Post-MVP] Add Java SDK
+desc: Java/Kotlin SDK for JVM applications.
+label: backend, post-mvp
+---
+
+title: [Post-MVP] Add C# SDK
+desc: .NET SDK for C# applications.
+label: backend, post-mvp
+---
+
+title: [Post-MVP] Add Ruby SDK
+desc: Ruby gem for Ruby applications.
+label: backend, post-mvp
+---
+
+title: [Post-MVP] Add Rust SDK
+desc: Rust crate for Rust applications.
+label: backend, post-mvp
+---
+
+title: [Post-MVP] Implement plugin system
+desc: Allow custom plugins for extensibility.
+label: backend, post-mvp
+---
+
+title: [Post-MVP] Add secret rotation automation
+desc: Automatically rotate secrets on schedule.
+label: security, post-mvp
+---
+
+title: [Post-MVP] Implement SSO (SAML/OIDC)
+desc: Enterprise SSO integration.
+label: security, post-mvp
+---
+
+title: [Post-MVP] Add team/organization features
+desc: Multi-team support with organization hierarchy.
+label: backend, post-mvp
+---
+
+title: [Post-MVP] Implement variable expiration
+desc: Auto-expire variables after specified time.
+label: backend, security, post-mvp
+---
+
+title: [Post-MVP] Add anomaly detection
+desc: Alert on unusual access patterns.
+label: security, observability, post-mvp
+---
+
+title: [Post-MVP] Implement mobile app
+desc: iOS/Android app for mobile access.
+label: frontend, post-mvp
