@@ -15,10 +15,13 @@ const config: Config = {
 	},
 
 	// Set the production url of your site here
-	url: 'https://envm-org.github.io',
+	url: process.env.GITHUB_ACTIONS
+		? 'https://envm-org.github.io'
+		: 'http://localhost:3000',
 	// Set the /<baseUrl>/ pathname under which your site is served
 	// For GitHub pages deployment, it is often '/<projectName>/'
-	baseUrl: '/envm/',
+	// Use '/' for local development, '/envm/' for GitHub Pages
+	baseUrl: process.env.GITHUB_ACTIONS ? '/envm/' : '/',
 
 	// GitHub pages deployment config.
 	organizationName: 'envm-org', // Your GitHub org/user name.
@@ -40,7 +43,6 @@ const config: Config = {
 			{
 				docs: {
 					sidebarPath: './sidebars.ts',
-					// Please change this to your repo.
 					editUrl: 'https://github.com/envm-org/envm/tree/main/docs/',
 				},
 				blog: {
@@ -49,7 +51,6 @@ const config: Config = {
 						type: ['rss', 'atom'],
 						xslt: true,
 					},
-					// Please change this to your repo.
 					editUrl: 'https://github.com/envm-org/envm/tree/main/docs/',
 					// Useful options to enforce blogging best practices
 					onInlineTags: 'warn',
@@ -64,7 +65,6 @@ const config: Config = {
 	],
 
 	themeConfig: {
-		// Replace with your project's social card
 		image: 'img/envm-social-card.jpg',
 		colorMode: {
 			respectPrefersColorScheme: true,
