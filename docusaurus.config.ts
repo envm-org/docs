@@ -16,12 +16,12 @@ const config: Config = {
 
 	// Set the production url of your site here
 	url: process.env.GITHUB_ACTIONS
-		? 'https://envm-org.github.io'
+		? 'https://envm-org.github.io/docs'
 		: 'http://localhost:3000',
 	// Set the /<baseUrl>/ pathname under which your site is served
 	// For GitHub pages deployment, it is often '/<projectName>/'
 	// Use '/' for local development, '/envm/' for GitHub Pages
-	baseUrl: process.env.GITHUB_ACTIONS ? '/envm/' : '/',
+	baseUrl: process.env.GITHUB_ACTIONS ? '/docs/' : '/',
 
 	// GitHub pages deployment config.
 	organizationName: 'envm-org', // Your GitHub org/user name.
