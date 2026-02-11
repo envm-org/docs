@@ -7,6 +7,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
 	title: 'ENVM',
 	tagline: 'Secure Environment Variable Management & Sync Tool',
+
+	plugins: [require.resolve('./src/plugins/tailwind-plugin.cjs')],
 	favicon: 'img/favicon.ico',
 
 	// Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -28,7 +30,7 @@ const config: Config = {
 	projectName: 'envm', // Your repo name.
 	trailingSlash: false,
 
-	onBrokenLinks: 'throw',
+	onBrokenLinks: 'warn',
 
 	// Even if you don't use internationalization, you can use this field to set
 	// useful metadata like html lang.
@@ -67,7 +69,8 @@ const config: Config = {
 	themeConfig: {
 		image: 'img/envm-social-card.jpg',
 		colorMode: {
-			respectPrefersColorScheme: true,
+			defaultMode: 'dark',
+			respectPrefersColorScheme: false,
 		},
 		navbar: {
 			title: 'ENVM',
@@ -82,7 +85,7 @@ const config: Config = {
 					position: 'left',
 					label: 'Docs',
 				},
-				{ to: '/blog', label: 'Blog', position: 'left' },
+
 				{
 					href: 'https://github.com/envm-org/envm',
 					label: 'GitHub',
@@ -102,11 +105,11 @@ const config: Config = {
 						},
 						{
 							label: 'Installation',
-							to: '/docs/tutorial-basics/installation',
+							to: '/docs/installation',
 						},
 						{
-							label: 'Tutorials',
-							to: '/docs/category/getting-started',
+							label: 'Encryption',
+							to: '/docs/encryption',
 						},
 					],
 				},
@@ -131,10 +134,6 @@ const config: Config = {
 					title: 'More',
 					items: [
 						{
-							label: 'Blog',
-							to: '/blog',
-						},
-						{
 							label: 'GitHub',
 							href: 'https://github.com/envm-org/envm',
 						},
@@ -148,7 +147,7 @@ const config: Config = {
 			copyright: `Copyright © ${new Date().getFullYear()} ENVM. Built with Docusaurus.`,
 		},
 		prism: {
-			theme: prismThemes.github,
+			theme: prismThemes.dracula,
 			darkTheme: prismThemes.dracula,
 			additionalLanguages: ['bash', 'json', 'yaml', 'go'],
 		},
