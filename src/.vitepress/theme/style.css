@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --vp-c-brand-1: #7c3aed;
+  --vp-c-brand-2: #8b5cf6;
+  --vp-c-brand-3: #a78bfa;
+}
+
+.dark {
+  --vp-c-bg: #1b1b1f;
+  --vp-c-bg-alt: #161618;
+}
+
+html {
+    scroll-behavior: smooth;
+}
