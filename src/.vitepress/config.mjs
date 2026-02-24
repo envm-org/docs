@@ -39,7 +39,8 @@ export default defineConfig({
          {
           text: 'Reference',
           items: [
-             { text: 'CLI Commands', link: '/docs/running-commands' }, 
+             { text: 'CLI Reference', link: '/docs/cli-reference' }, 
+             { text: 'Running Commands', link: '/docs/running-commands' }, 
              { text: 'Configuration', link: '/docs/manage-variables' }, 
           ]
         }
@@ -48,13 +49,13 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/envm-org/envm' },
-      { icon: 'discord', link: 'https://discord.gg/envm' },
-      { icon: 'x', link: 'https://x.com/envm_dev' }
+      { icon: 'discord', link: 'https://discord.com/users/nyambogahezron' },
+      { icon: 'x', link: 'https://x.com/nyambogahezron' }
     ],
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: `Copyright © ${new Date().getFullYear()} ENVM. Built with VitePress.`
+      copyright: `Copyright © ${new Date().getFullYear()} ENVM.`
     },
     
     search: {

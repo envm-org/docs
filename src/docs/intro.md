@@ -82,19 +82,7 @@ base.envm          # Shared defaults
 - NPM package for Node.js projects
 - CI/CD pipeline integration
 
-## Supported Languages
 
-ENVM provides native support for:
-
-| Language   | Status    |
-|------------|-----------|
-| JavaScript | ✅ MVP    |
-| TypeScript | ✅ MVP    |
-| Python     | ✅ MVP    |
-| Go         | ✅ MVP    |
-| Java       | 🔜 Next   |
-| C#         | 🔜 Next   |
-| Ruby       | 🔜 Next   |
 
 ## The `.envm` File Format
 
@@ -120,17 +108,7 @@ DATABASE_PASSWORD=ENC:base64encodedciphertext
 DATABASE_URL=${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
 ```
 
-## Tech Stack
 
-ENVM is built with a **Go-first architecture**:
-
-- **Core**: Go for all business logic, CLI, and backend API
-- **CLI**: Cobra framework with shell completion
-- **Database**: SQLite (local), PostgreSQL (production)
-- **Cache**: Redis for performance
-- **API**: gRPC with REST gateway
-- **Events**: NATS for real-time sync
-- **Frontend**: React web dashboard
 
 ## Quick Start
 
