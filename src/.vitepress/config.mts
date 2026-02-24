@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
 	title: 'ENVM',
 	description: 'Secure Environment Variable Management & Sync Tool',
@@ -8,13 +7,12 @@ export default defineConfig({
 	cleanUrls: true,
 	ignoreDeadLinks: true,
 
-	head: [['link', { rel: 'icon', href: '/img/favicon.ico' }]],
+	head: [['link', { rel: 'icon', href: '/img/favicon.png' }]],
 
 	themeConfig: {
-		// https://vitepress.dev/reference/default-theme-config
 		nav: [
 			{ text: 'Docs', link: '/docs/intro' },
-			{ text: 'Encryption', link: '/docs/encryption' },
+			{ text: 'Changelog', link: '/docs/changelog' },
 		],
 
 		sidebar: {
