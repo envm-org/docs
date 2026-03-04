@@ -80,6 +80,22 @@ tar -xzf envm_linux_amd64.tar.gz
 sudo mv envm /usr/local/bin/
 ```
 
+### Local Build (Development)
+
+If you'd like to build and install ENVM locally from the source code, you can use our built-in script.
+
+```bash
+# Clone the repository
+git clone https://github.com/envm-org/envm.git
+cd envm
+
+# Install the CLI locally
+./scripts/install-cli.sh
+
+# Start the application services (optional, if you need a local server)
+docker compose up -d
+```
+
 ## Shell Completion
 
 ENVM supports shell completion for faster command entry:

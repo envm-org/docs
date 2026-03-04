@@ -7,6 +7,7 @@ sidebar_position: 6
 The following commands are available from the `envm` CLI to help you securely manage environment variables across projects.
 
 <!-- commands -->
+* [`envm completion`](#envm-completion)
 * [`envm env`](#envm-env)
 * [`envm init`](#envm-init)
 * [`envm load`](#envm-load)
@@ -16,8 +17,22 @@ The following commands are available from the `envm` CLI to help you securely ma
 * [`envm pull`](#envm-pull)
 * [`envm push`](#envm-push)
 * [`envm register`](#envm-register)
+* [`envm uninstall`](#envm-uninstall)
 * [`envm users`](#envm-users)
+* [`envm version`](#envm-version)
 * [`envm whoami`](#envm-whoami)
+
+## `envm completion`
+
+Generate the autocompletion script for the specified shell
+
+```
+USAGE
+  $ envm completion [bash|zsh|fish|powershell]
+
+DESCRIPTION
+  Generates autocompletions. Automatically installed via install.sh for bash and zsh.
+```
 
 ## `envm env`
 
@@ -127,6 +142,18 @@ DESCRIPTION
   Create a new account with your name, email and password.
 ```
 
+## `envm uninstall`
+
+Uninstall the envm CLI
+
+```
+USAGE
+  $ envm uninstall
+
+DESCRIPTION
+  Removes the envm binary and its configuration directory from your system.
+```
+
 ## `envm users`
 
 Manage users
@@ -149,4 +176,18 @@ USAGE
 
 DESCRIPTION
   Display the currently authenticated user's name and email.
+```
+
+## `envm version`
+
+Print the CLI version
+
+```
+USAGE
+  $ envm version
+  $ envm --version
+  $ envm -v
+
+DESCRIPTION
+  Displays the current version of the envm CLI.
 ```
